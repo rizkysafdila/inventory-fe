@@ -101,19 +101,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <div>
             <ul className="mb-6 flex flex-col gap-1.5">
               {/* <!-- Menu Item Dashboard --> */}
-              {profile?.is_admin === 1 && (
-                <li>
-                  <NavLink
-                    to="/dashboard"
-                    className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('dashboard') &&
-                      'bg-graydark dark:bg-meta-4'
-                      }`}
-                  >
-                    <TbLayout2 size={18} />
-                    Dashboard
-                  </NavLink>
-                </li>
-              )}
+              <li>
+                <NavLink
+                  to="/dashboard"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('dashboard') &&
+                    'bg-graydark dark:bg-meta-4'
+                    }`}
+                >
+                  <TbLayout2 size={18} />
+                  Dashboard
+                </NavLink>
+              </li>
               {/* <!-- Menu Item Dashboard --> */}
 
               {/* <!-- Menu Item Inventory --> */}

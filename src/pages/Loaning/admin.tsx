@@ -11,7 +11,7 @@ import ApprovalConfirmationModal from "../../components/Modal/ModalApprove"
 import Modal from "../../components/Modal/Modal"
 
 const AdminLoaning: React.FC = () => {
-  const { loans, approve, reject, returnLoanItem } = useLoan() // Assuming you have an approveLoan function in your hook
+  const { loans, approve, reject, returnLoanItem, loading } = useLoan() // Assuming you have an approveLoan function in your hook
   const { inventories } = useInventory()
   const [processItemId, setProcessItemId] = useState<number | null>(null)
   const [isApproveModalOpen, setIsApproveModalOpen] = useState(false)
@@ -123,11 +123,11 @@ const AdminLoaning: React.FC = () => {
             className="text-white bg-primary border border-primary hover:border-black hover:bg-black font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary/90 dark:hover:border-primary/90 transition-colors duration-200"
             onClick={handleConfirmReturnLoan}
           >
-            Confirm
+            {loading ? "Loading..." : "Confirm"}
           </button>
         }
       >
-        <div>{processItemId}</div>
+        <p className='text-black dark:text-slate-400'>Are you sure you want to confirm this item already returned?</p>
       </Modal>
 
       <ApprovalConfirmationModal
@@ -135,6 +135,7 @@ const AdminLoaning: React.FC = () => {
         onClose={() => setIsApproveModalOpen(false)}
         onApprove={handleConfirmApproval}
         onRejected={handleRejectApproval}
+        loading={loading}
       />
     </DefaultLayout>
   )

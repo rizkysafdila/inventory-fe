@@ -77,7 +77,6 @@ function App() {
                   <Dashboard />
                 </>
               }
-              requiredRole='admin'
             />
           }
         />

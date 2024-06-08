@@ -29,7 +29,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                     // Fetch the profile if it's not fetched already
                     // Adjust this logic according to your useProfile hook
                     // For example:
-                    // await fetchUserProfile()
+                    await fetchUserProfile()
                 } else {
                     setRole(profile.is_admin === 1 ? 'admin' : 'user')
                 } 

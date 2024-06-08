@@ -37,6 +37,7 @@ const FormTextarea: React.FC<ITextareaProps> = ({
                 rows={rows}
                 cols={cols}
                 disabled={disabled}
+                required
             />
         </Field>
     )

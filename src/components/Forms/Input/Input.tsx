@@ -58,7 +58,7 @@ const FormInput: React.FC<IInputProps> = ({
             'block w-full rounded-lg border border-black/25 bg-white dark:bg-graydark dark:text-white py-2.5 px-3 text-sm text-black dark:border-slate-400',
             'focus:border-transparent focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black/25 dark:data-[focus]:outline-white'
           )}
-          required={required}
+          required
         />
       </div>
     </Field>

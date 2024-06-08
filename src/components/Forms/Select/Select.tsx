@@ -33,6 +33,7 @@ const FormSelect: React.FC<ISelectProps> = ({ name, label, value, items, disable
             'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25',
           )}
           disabled={disabled}
+          required
         >
           <option value='default' disabled>Select one</option>
           {items.map((item, idx) => (

@@ -1,5 +1,5 @@
 import Axios from '../api/axios'
-import { TProfile } from '../types/profile'
+import type { TProfile } from '../types/profile'
 import type { TUser } from '../types/user'
 
 export const getAllUsers = async (): Promise<TUser[]> => {

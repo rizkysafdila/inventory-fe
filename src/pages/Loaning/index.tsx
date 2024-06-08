@@ -21,6 +21,7 @@ const Loaning: React.FC = () => {
     userLoans,
     makeLoan,
     editLoan,
+    loading,
   } = useLoan()
   const { inventories } = useInventory()
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -145,7 +146,7 @@ const Loaning: React.FC = () => {
         createButton={(
           <button
             type="button"
-            className="flex items-center gap-2 text-white bg-primary hover:bg-black font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-primary dark:hover:bg-primary/90 transition-colors duration-200"
+            className="flex items-center gap-2 text-white bg-primary hover:bg-black font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary/90 transition-colors duration-200"
             onClick={() => openModal()}
           >
             <TbPlus size={18} />
@@ -164,8 +165,9 @@ const Loaning: React.FC = () => {
             type="button"
             className="text-white bg-primary border border-primary hover:border-black hover:bg-black font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary/90 dark:hover:border-primary/90 transition-colors duration-200"
             onClick={handleSubmit}
+            disabled={loading}
           >
-            {isEditMode ? "Update" : "Create"}
+            {loading ? "Loading..." : "Save"}
           </button>
         }
       >

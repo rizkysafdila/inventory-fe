@@ -6,6 +6,7 @@ interface ApprovalConfirmationModalProps {
     onClose: () => void
     onApprove: () => void
     onRejected: () => void
+    loading?: boolean
 }
 
 const ApprovalConfirmationModal: React.FC<ApprovalConfirmationModalProps> = ({
@@ -13,6 +14,7 @@ const ApprovalConfirmationModal: React.FC<ApprovalConfirmationModalProps> = ({
     onClose,
     onApprove,
     onRejected,
+    loading,
 }) => {
     return (
         <Transition appear show={isOpen}>
@@ -39,13 +41,13 @@ const ApprovalConfirmationModal: React.FC<ApprovalConfirmationModalProps> = ({
                                         className="text-red-700 dark:text-red-500 hover:text-white hover:bg-red-800 border border-red-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2"
                                         onClick={onRejected}
                                     >
-                                        Reject
+                                        {loading ? "Loading..." : "Reject"}
                                     </button>
                                     <button
                                         className="text-white bg-green-700 hover:bg-green-800 border border-green-700 font-medium rounded-lg text-sm px-5 py-2.5 me-2"
                                         onClick={onApprove}
                                     >
-                                        Approve
+                                        {loading ? "Loading..." : "Approve"}
                                     </button>
                                 </div>
                             </DialogPanel>

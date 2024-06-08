@@ -4,17 +4,17 @@ import { useAuth } from '../contexts/AuthContext'
 
 interface ProtectedRouteProps extends PathRouteProps {
     element: React.ReactElement
-    requiredRole?: 'admin' | 'user'
+    requiredRole?: 'admin' | 'user' | null
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, requiredRole }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, requiredRole = null }) => {
     const { isAuthenticated, role } = useAuth()
 
     if (!isAuthenticated) {
         return <Navigate to="/sign-in" />
     }
 
-    if (role !== requiredRole) {
+    if (!isAuthenticated && role !== requiredRole) {
         return <Navigate to="/unauthorized" />
     }
 

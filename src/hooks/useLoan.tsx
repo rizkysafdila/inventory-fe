@@ -41,6 +41,7 @@ export const useLoan = () => {
   }
 
   const makeLoan = async (newLoan: TLoanForm) => {
+    setLoading(true)
     try {
       await createLoan(newLoan)
       fetchLoanByUser()
@@ -49,6 +50,8 @@ export const useLoan = () => {
     } catch (err) {
       setError('Failed adding user')
       return Promise.reject(err)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -63,7 +66,7 @@ export const useLoan = () => {
     }
 
     // return console.log(`id_pnj: ${id}`, editedLoan)
-    
+    setLoading(true)
     try {
       await updateLoan(id, editedLoan as any)
       fetchLoanByUser()
@@ -72,10 +75,13 @@ export const useLoan = () => {
     } catch (err) {
       setError('Failed updating loan')
       return Promise.reject(err)
+    } finally {
+      setLoading(false)
     }
   }
 
   const approve = async (id: number) => {
+    setLoading(true)
     try {
       await approveLoan(id)
       fetchLoans()
@@ -83,10 +89,13 @@ export const useLoan = () => {
       return Promise.resolve()
     } catch (err) {
       return Promise.reject(err)
+    } finally {
+      setLoading(false)
     }
   }
 
   const reject = async (id: number) => {
+    setLoading(true)
     try {
       await rejectLoan(id)
       fetchLoans()
@@ -94,10 +103,13 @@ export const useLoan = () => {
       return Promise.resolve()
     } catch (err) {
       return Promise.reject(err)
+    } finally {
+      setLoading(false)
     }
   }
 
   const returnLoanItem = async (id: number) => {
+    setLoading(true)
     try {
       await returnLoan(id)
       fetchLoans()
@@ -105,6 +117,8 @@ export const useLoan = () => {
       return Promise.resolve()
     } catch (err) {
       return Promise.reject(err)
+    } finally {
+      setLoading(false)
     }
   }
 

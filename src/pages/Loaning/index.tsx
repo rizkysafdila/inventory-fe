@@ -107,6 +107,7 @@ const Loaning: React.FC = () => {
     ...item,
     // name: item.user.nama,
     item: item.barang.nama_barang,
+    kepemilikan: item.barang.kepemilikan,
     tgl_pinjam: formatDate(item.tgl_pinjam),
     durasi_pinjam: formatDate(item.durasi_pinjam),
     tgl_kembali: item.tgl_kembali ? formatDate(item.tgl_kembali) : '-',

@@ -3,6 +3,7 @@ export type TLoan = {
   barang: any
   user: any
   ket: string
+  kepemilikan: string
   qty: number | null
   tgl_pinjam: string
   durasi_pinjam: string

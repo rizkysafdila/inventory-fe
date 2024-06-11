@@ -73,18 +73,19 @@ const AdminLoaning: React.FC = () => {
     ID: item.id_peminjaman,
     name: item.user.nama,
     item: item.barang.nama_barang,
+    kepemilikan: item.barang.kepemilikan,
     tgl_pinjam: formatDate(item.tgl_pinjam),
     durasi_pinjam: formatDate(item.durasi_pinjam),
     tgl_kembali: item.tgl_kembali ? formatDate(item.tgl_kembali) : '-',
   }))
 
   // Inventory select items
-  const availableItems = inventories
-    .filter(item => item.status === 1)
-    .map(item => ({
-      text: item.nama_barang,
-      value: item.id_barang as any
-    }))
+  // const availableItems = inventories
+  //   .filter(item => item.status === 1)
+  //   .map(item => ({
+  //     text: item.nama_barang,
+  //     value: item.id_barang as any
+  //   }))
 
   const statusMapping = {
     0: 'PENDING',

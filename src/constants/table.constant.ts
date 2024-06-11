@@ -15,6 +15,7 @@ export const AdminLoaningTableHeader: TTableHeader[] = [
   { text: 'Name', value: 'name' },
   { text: 'Item', value: 'item' },
   { text: 'Description', value: 'ket' },
+  { text: 'Ownership', value: 'kepemilikan' },
   { text: 'Quantity', value: 'qty' },
   { text: 'Loan Date', value: 'tgl_pinjam' },
   { text: 'Duration', value: 'durasi_pinjam' },
@@ -25,6 +26,7 @@ export const AdminLoaningTableHeader: TTableHeader[] = [
 export const LoaningTableHeader: TTableHeader[] = [
   { text: 'Item', value: 'item' },
   { text: 'Description', value: 'ket' },
+  { text: 'Ownership', value: 'kepemilikan' },
   { text: 'Quantity', value: 'qty' },
   { text: 'Loan Date', value: 'tgl_pinjam' },
   { text: 'Duration', value: 'durasi_pinjam' },

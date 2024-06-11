@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import Loader from './common/Loader'
 import PageTitle from './components/PageTitle'
@@ -33,10 +33,10 @@ function App() {
   ) : (
     <AuthProvider>
       <Routes>
-        {/* <Route
+        <Route
           index
-          element={<Unauthorized />}
-        /> */}
+          element={<Navigate to={'/sign-in'} />}
+        />
 
         {/* Auth */}
         <Route

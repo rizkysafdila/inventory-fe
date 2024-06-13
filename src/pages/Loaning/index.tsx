@@ -117,7 +117,7 @@ const Loaning: React.FC = () => {
   const availableItems = inventories
     .filter(item => item.status === 1)
     .map(item => ({
-      text: item.nama_barang,
+      text: `${item.nama_barang} - ${item.kepemilikan}`,
       value: item.id_barang as any
     }))
 

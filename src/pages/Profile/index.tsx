@@ -5,6 +5,7 @@ import { useProfile } from '../../hooks/useProfile'
 import DefaultLayout from '../../layout/DefaultLayout'
 import { toast, ToastContainer } from 'react-toastify'
 import { useUser } from '../../hooks/useUser'
+import FormSelect, { ISelectItemProps } from '../../components/Forms/Select/Select'
 
 const Profile: React.FC = () => {
   const { loading: updateProfileLoading, profile, editUserProfile } = useProfile()
@@ -74,6 +75,11 @@ const Profile: React.FC = () => {
       toast.error("Failed to update password")
     }
   }
+
+  const companyItems: ISelectItemProps[] = [
+    {text: 'Infinite Learning Indonesia', value: 'Infinite Learning Indonesia'},
+    {text: 'Nongsa Digital Park', value: 'Nongsa Digital Park'}
+  ]
 
   return (
     <DefaultLayout>
@@ -169,14 +175,12 @@ const Profile: React.FC = () => {
                     placeholder="Enter your division"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
-                </div>
+                </div>                
 
                 <SelectCompany
                   selectedOption={formData.perusahaan}
-                  onChange={(value) => setFormData((prevData) => ({
-                    ...prevData,
-                    company: value
-                  }))}
+                  items={companyItems}
+                  onChange={handleChange}
                 />
 
                 <button type="submit" className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">

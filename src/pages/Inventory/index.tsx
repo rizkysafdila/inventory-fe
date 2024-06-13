@@ -16,7 +16,6 @@ import DeleteConfirmationModal from "../../components/Modal/ModalDelete"
 const Inventory: React.FC = () => {
   const {
     inventories,
-    loading,
     error,
     addInventoryItem,
     editInventoryItem,
@@ -107,7 +106,7 @@ const Inventory: React.FC = () => {
         setIsDeleteConfirmationOpen(false)
         toast.success("Item deleted successfully")
       } catch (error) {
-        console.error("Error deleting inventory item:", error)
+        setIsDeleteConfirmationOpen(false)
         toast.error("Error deleting item")
       }
     }
@@ -118,14 +117,6 @@ const Inventory: React.FC = () => {
     ...item,
     tgl_pembelian: formatDate(item.tgl_pembelian),
   }))
-
-  // if (loading) {
-  //   return <div>Loading...</div>
-  // }
-
-  if (error) {
-    return <div>{error}</div>
-  }
 
   // Status mapping
   const statusMapping = {

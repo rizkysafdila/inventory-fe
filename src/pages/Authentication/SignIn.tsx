@@ -35,9 +35,15 @@ const SignIn: React.FC = () => {
     setError('')
 
     try {
-      await Axios.post('/login', { email, password })
+      const response = await Axios.post('/login', { email, password })
+      
+      if (!response.data.Login) {
+        toast.error('Login failed, check your credentials')  
+        return
+      }
+      
       toast.success('Register success, please login')
-
+      
       setTimeout(() => {
         navigate('/dashboard')
       }, 2000); // Delay for 3 seconds

@@ -49,6 +49,7 @@ export const useInventory = () => {
       fetchInventories()
     } catch (err) {
       setError('Failed deleting inventory item')
+      throw err
     }
   }
 
